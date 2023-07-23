@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Add new User</title>
+    <link rel="stylesheet" type="text/css" href="css/editUser.css">
+</head>
+
+<style>
+    a{
+        text-decoration: none;
+        color: #222;
+        margin-top:  20px;
+    }
+</style>
+
+<body>
+    
+    
+    <h1>Add New User</h1>
+    <form method="post" action="/admin/addNewUser" enctype="multipart/form-data">
+        <input type="text" name="name" placeholder="enter you Name">
+        <br><br>
+        <input type="email" name="email" placeholder="enter you Email">
+        <br><br>
+        <input type="password" name="password" placeholder="enter you Password">
+        <br><br>
+        <input type="file" name="image">
+        <br><br>
+        <button type="submit">create User</button>
+    </form>
+
+
+    <%
+
+        if(typeof message !== 'undefined'){ %>
+            <p style="color:green;font-size: 18px;"><%= message %></p>
+        <% }
+    
+    %>
+
+
+    <a href="/admin/dashboard">Back to Dashboard</a>
+
+</body>
+</html>

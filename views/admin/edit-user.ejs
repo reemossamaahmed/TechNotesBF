@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Edit User</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: #323232;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        form{
+            width: 50%;
+            height: 50%;
+            background-color: #f0f0f0;
+            border-radius: 2%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        input[type="password"],
+        input[type="file"],
+        input[type="text"],
+        input[type="email"] {
+            width: 50%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            -ms-border-radius: 5px;
+            -o-border-radius: 5px;
+        }
+
+        button[type="submit"] {
+            width: 20%;
+            padding: 10px 0;
+            background: #323232;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        .verified{
+            width: 45%;
+            display: flex;
+            margin-bottom: 30px;
+            justify-content: space-between;
+        }
+        h1{
+            margin-bottom: 10px;
+        }
+        a{
+            text-decoration: none;
+            color: #f0f0f0;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <form method="post" action="/admin/edit-user" enctype="multipart/form-data">
+        <h1>edit User</h1>
+        <input type="hidden" value="<%= user._id %>" name="id">
+        <input type="text" name="name" placeholder="enter you Name" value="<%= user.name%>">
+        <br><br>
+        <input type="email" name="email" placeholder="enter you Email" value="<%= user.email%>">
+        <br><br>
+        <div class="verified">
+            <label>Verified</label>
+            <input type="radio" name="verify" value="true" <% if(user.isVerify == true) { %> checked <% } %>>
+            <label>Not Verified</label>
+            <input type="radio" name="verify" value="false" <% if(user.isVerify == false) { %> checked <% } %>>
+            <!-- <br><br> -->
+        </div>
+        
+        <button type="submit">edit User</button>
+    </form>
+
+    <%
+
+        if(typeof message !== 'undefined'){ %>
+    <p style="color:green;font-size: 18px;"><%= message %></p>
+    <% }
+    
+    %>
+
+
+    <a href="/admin/dashboard">Back to Dashboard</a>
+
+</body>
+
+</html>

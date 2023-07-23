@@ -1,0 +1,35 @@
+<html>
+
+<head>
+    <title>User - Register</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- <script src="js/script.js"></script> -->
+</head>
+
+<body>
+    <div class="container">
+        <div class="glass-frame">
+            <h1>Welcome!</h1>
+            <div id="signup" class="tab-content">
+                <form method="post" action="/user/register" enctype="multipart/form-data">
+                    <input type="text" name="name" placeholder="enter you Name" required>
+                    <input type="email" name="email" placeholder="enter you Email" required>
+                    <input type="password" name="password" placeholder="enter you Password" required>
+                    <input type="file" name="image">
+                    <button type="submit">Signup</button>
+                </form>
+
+
+
+                <% if(typeof message !=='undefined' ){ %>
+                    <p style="color:green;font-size: 18px;">
+                        <%= message %>
+                    </p>
+                    <% } %>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

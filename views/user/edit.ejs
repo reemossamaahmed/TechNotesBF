@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User - Edit</title>
+    <link rel="stylesheet" type="text/css" href="css/editUser.css">
+    <style>
+        input[type="file"] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="title">Edit My Profile</h1>
+
+
+
+    <form method="post" action="/user/edit" enctype="multipart/form-data">
+        <input type="hidden" value="<%= user._id %>" name="user_id">
+        <input type="file" name="image" id="image">
+        <label for="image"><img class="image" height="100px" src="images/users/<%= user.image %>"
+                alt="<%= user.image %>" />
+        </label>
+        <br><br>
+        <input type="text" name="name" placeholder="enter you Name" value="<%= user.name%>">
+        <br><br>
+        <input type="email" name="email" placeholder="enter you Email" value="<%= user.email%>">
+        <br><br>
+
+        <button type="submit">edit</button>
+    </form>
+
+
+    <%
+
+        if(typeof message !== 'undefined'){ %>
+    <p style="color:green;font-size: 18px;"><%= message %></p>
+    <% }
+    
+    %>
+</body>
+
+</html>

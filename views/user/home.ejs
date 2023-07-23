@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User - Profile</title>
+    <link rel="stylesheet" type="text/css" href="css/homeUser.css">
+
+</head>
+
+<body>
+    <div class="center">
+        <div class="container">
+            <div class="left">
+                <div class="photo">
+                    <div class="circle"></div>
+                    <div class="circle2"></div>
+                    <img alt="user photo" src="images/users/<%= user.image %>" width="150px" height="150px">
+                </div>
+                <div class="title__contain">
+                    <div class="username"><%= user.name%></div>
+                    <div class="title"><%= user.email %></div>
+                </div>
+                <a href="/user/edit?id=<%= user._id%>" class="edit">Edit</a>
+                <a href="/user/logout" class="logout">Logout</a>
+            </div>
+            <div class="right">
+                <div class="rightbox">
+                    <span class="large"><%= munNotes%></span>
+                    <a class="small" href="/user/show/notes">Notes</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

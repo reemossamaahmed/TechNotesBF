@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Dashboard</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        nav {
+            background-color: #333;
+            display: flex;
+            align-items: center;
+            padding: 8px 0; 
+            justify-content: space-around;
+        }
+
+        .logo a {
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        ul.menu {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        ul.menu li {
+            margin-left: 20px;
+        }
+
+        ul.menu li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        ul.menu li a:hover {
+            background-color: #111;
+            border-radius: 4px;
+        }
+
+        ul.dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            border-radius: 4px;
+        }
+
+        ul.dropdown-content li {
+            display: flex;
+        }
+
+        ul.dropdown-content li a {
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+        }
+
+        ul.dropdown-content li a:hover {
+            /* background-color: #111; */
+        }
+
+        ul.menu li.dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* **************************************** */
+
+        .title{
+            margin: 25px 15px;
+            text-align: center;
+        }
+        table.simple-table {
+            width: 90%;
+            border-collapse: collapse;
+            border: 1px solid #ccc;
+            margin: auto;
+        }
+
+        table.simple-table th,
+        table.simple-table td {
+            padding: 8px;
+            border: 1px solid #ccc;
+            text-align: left;
+        }
+
+        table.simple-table th {
+            background-color: #f2f2f2;
+        }
+
+        table.simple-table tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        table.simple-table tbody tr:hover {
+            background-color: #e0e0e0;
+        }
+        /* ************** */
+        table tbody tr td.links{
+            display: flex;
+            justify-content: space-between;
+        }
+        table tbody tr td a{
+            text-decoration: none;
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <a href="#">Tech Notes</a>
+        </div>
+        <ul class="menu">
+            <li class="dropdown">
+                <a href="#"><%= user.name %> &#9662;</a>
+                <ul class="dropdown-content">
+                    <li><a href="/admin/home">Profile</a></li>
+                    <li><a href="/admin/logout">Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+
+
+
+
+<div style="display: flex; align-items: center;">
+    <h1 class="title">Admin Panel / </h1>
+</div>
+    
+
+    <table class="simple-table">
+        <thead>
+            <tr>
+                <td>Users</td>
+                <td>Notes</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><a href="/admin/show/users">Show Users</a></td>
+                <td><a href="/admin/show/notes">Show Notes</a></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

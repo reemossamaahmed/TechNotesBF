@@ -1,0 +1,37 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Login</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    
+    <div class="container">
+        <div class="glass-frame">
+            <h1>Welcome!</h1>
+
+
+            <% if(typeof message !=='undefined' ){ %>
+                <p style="color:red;font-size: 18px;">
+                    <%= message %>
+                </p>
+                <% } %>
+
+                    <div id="login" class="tab-content">
+                        <form method="post" action="/admin/login">
+                            <input type="email" name="email" placeholder="enter you Email" required>
+                            <input type="password" name="password" placeholder="enter you Password">
+                            <button type="submit">Login</button>
+                        </form>
+
+
+                        <div class="links">
+                            <a href="/admin/forget-password">Forget Password ?</a>
+                        </div>
+                    </div>
+        </div>
+    </div>
+
+</body>
+</html>

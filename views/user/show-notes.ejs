@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show All Notes</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        nav {
+            background-color: #333;
+            display: flex;
+            align-items: center;
+            padding: 8px 0; 
+            justify-content: space-around;
+        }
+
+        .logo a {
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        ul.menu {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        ul.menu li {
+            margin-left: 20px;
+        }
+
+        ul.menu li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        ul.menu li a:hover {
+            background-color: #111;
+            border-radius: 4px;
+        }
+
+        ul.dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            border-radius: 4px;
+        }
+
+        ul.dropdown-content li {
+            display: flex;
+        }
+
+        ul.dropdown-content li a {
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+        }
+
+
+        ul.menu li.dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* **************************************** */
+
+        .title{
+            margin: 25px 15px;
+            text-align: center;
+        }
+        table.simple-table {
+            width: 90%;
+            border-collapse: collapse;
+            border: 1px solid #ccc;
+            margin: auto;
+        }
+
+        table.simple-table th,
+        table.simple-table td {
+            padding: 8px;
+            border: 1px solid #ccc;
+            text-align: left;
+        }
+
+        table.simple-table th {
+            background-color: #f2f2f2;
+        }
+
+        table.simple-table tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        table.simple-table tbody tr:hover {
+            background-color: #e0e0e0;
+        }
+        /* ************** */
+        table tbody tr td.links{
+            display: flex;
+            justify-content: space-between;
+        }
+        table tbody tr td a{
+            text-decoration: none;
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+
+
+
+
+<div style="display: flex; align-items: center;">
+    <h1 class="title">Notes List / </h1>
+    <a href="/user/create-note" style="text-decoration: none; font-size: 20px;">Add New Note</a>    
+</div>
+    
+
+    <table class="simple-table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Created By</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%
+        if(notes.length > 0){
+            for (var i = 0; i < notes.length ;i++){ %>
+            <tr>
+                <td><%= notes[i].title %></td>
+                <td><%= notes[i].body %></td>
+                <%
+                        if(notes[i].completed === true)
+                        { %>
+                            <td>Completed</td>
+                        <% }
+                        else
+                        { %>
+                            <td>not Completed</td>
+                        <%}
+                    %>
+                    <td><%= notes[i]?.userinfo?.name %></td>
+                    <td class="links">
+                        <a href="/user/<%= notes[i]._id %>">edit</a>
+                        <a href="/user/note/<%= notes[i]._id %>">delete</a>
+                    </td>
+            </tr>
+            <% }
+        }
+        else
+        {%>
+            <tr>
+                <td>No Notes Found</td>
+            </tr>
+        <%}
+    %>
+        </tbody>
+    </table>
+    <!-- <a href="/admin/dashboard" style="text-decoration: none;font-size: 20px; margin: 50px; display: inline-block;">Go to Dashboard</a> -->
+</body>
+
+</html>

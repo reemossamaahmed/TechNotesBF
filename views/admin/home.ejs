@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Profile Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        .profile {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        .profile h1 {
+            font-size: 28px;
+            margin: 0;
+        }
+
+        .profile h3 {
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .profile p {
+            line-height: 1.6;
+            margin-top: 10px;
+        }
+
+        .profile ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        .profile li {
+            margin-bottom: 5px;
+        }
+
+        .profile li:before {
+            content: '\2022';
+            /* Bullet point character */
+            margin-right: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="profile">
+        <img src="images/users/<%= admin.image %>" alt="images/users/<%= admin.image %>">
+        <h1><%= admin.name %></h1>
+        <h3>Administrator</h3>
+        <p>
+            Welcome to the Admin Profile Page. You have full access to manage the system and its users.
+        </p>
+        <ul>
+            <li>Email: <%= admin.email %></li>
+            <li>Role: Administrator</li>
+            <li>Last Login: 2023-07-22 12:30 PM</li>
+        </ul>
+        <div>
+            <a style="text-decoration: none; color:#254;display: inline-block; margin-right: 10px;" href="/admin/edit-user/<%= admin._id%>">Edit</a>
+            <a style="text-decoration: none; color:#254;"href="/admin/logout">Logout</a>
+            
+        </div>
+    </div>
+
+    
+</body>
+
+</html>
